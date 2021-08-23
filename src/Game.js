@@ -9,6 +9,15 @@ const Game = () => {
     const [prompt, setPrompt] = useState("")
 
     const handleClick = () => {
+        if (number === +guess) {
+        setMessage("Вы выиграли!")
+        setPrompt("")
+        localStorage.setItem(JSON.stringify(score), score.value)
+        setScore(score + 1)
+    } else if (freeAttempt - 1 === 0) {
+        setMessage("Вы проиграли:(")
+    }
+        setGuess("")
         if (freeAttempt) {
             setFreeAttempt(freeAttempt - 1)
             if (number - +guess >= 2) {
@@ -24,17 +33,6 @@ const Game = () => {
         setFreeAttempt(3)
         setMessage("")
     }
-    useEffect(() => {
-        if (number === +guess) {
-            setMessage("Вы выиграли!")
-            setPrompt("")
-            localStorage.setItem(JSON.stringify(score), score.value)
-            setScore(score + 1)
-        } else if (freeAttempt === 0) {
-            setMessage("Вы проиграли:(")
-        }
-        setGuess("")
-    })
 
     const handleInput = (e) => {
         setGuess(e.target.value)
