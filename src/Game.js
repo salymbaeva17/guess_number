@@ -34,7 +34,7 @@ const Game = () => {
             setMessage("Вы проиграли:(")
         }
         setGuess("")
-    }, [freeAttempt, guess, number, score])
+    })
 
     const handleInput = (e) => {
         setGuess(e.target.value)
