@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 
 const Game = () => {
     const [number, setNumber] = useState(Math.round(Math.random() * 10))
